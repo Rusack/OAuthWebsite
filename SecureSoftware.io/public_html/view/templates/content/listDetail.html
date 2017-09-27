@@ -1,0 +1,73 @@
+    <div class="pure-g">
+        <div class="pure-u-1-3">
+        </div>
+        <div class="pure-u-1-3">
+            <h1 class="splash-head" style="text-align : center">{{ list.name }}</h1>
+            
+    <div class="pure-menu custom-restricted-width">
+        {% if SupprRes < 0 %}
+        <p>Unable to delete task</p>
+        {% endif %}
+        <a class="pure-button" style="background: blue; color: white" href="{{ base_url() }}/todolist">Back to your lists</a>
+        <span class="pure-menu-heading">To Do</span>
+        <table class="pure-table pure-table-striped pure-table-horizontal" align="center">
+        <table class="pure-table pure-table-striped pure-table-horizontal" align="center">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Deadline</th>
+                <th>Description</th>
+                <th/>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for task in taskList %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{ task['deadline'] }}</td>
+                <td>{{ task['description'] }}</td>
+
+                <td>
+                    <a class="pure-button" style="background: rgb(202, 60, 60); color: white" href="{{ base_url() }}/detail/{{ listID }}/del/{{ task['idTask'] }}?token={{ token }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+            <!--
+            <li class="pure-menu-heading" >Done</li>
+            <div class="pure-g">
+                <div class="pure-u-1-12"></div>
+                <div class="pure-u-11-12">        
+                    <li class="pure-menu-item"><a class="">Sample Task Done</a></li>
+                </div>
+            </div>
+            -->
+        </ul>
+
+        <br>
+         <h4 class="splash-head" style="text-align : center">Add task</h4>
+         {% if res < 0 %}
+        <p>Error while adding a task.</p>
+        {% endif %}
+        <form class="pure-form pure-form-aligned" method="post" name="login-form" id="login-form" action="{{ base_url() }}/detail/{{ listID }}">
+        <div class="pure-control-group">
+        <label for="deadline">Deadline</label>
+        <input name="deadline" type="date" placeholder="0000-00-00" value="{{ "now"|date("Y/m/d") }}">
+        </div>
+        <div class="pure-control-group">
+        <label for="description">Description</label>
+        <textarea name="description" type="text" id="newtask" placeholder="Description" style=""> </textarea>
+        <input name="token" hidden value="{{ token }}">
+        </div>
+        <button type="submit" class="pure-button" style="margin-left : 10px; background: rgb(66, 184, 221); color: white">Add Task</button>
+        </form>
+    </div>
+        </div>
+        <div class="pure-u-1-3">
+        </div>
+    </div>
+    
+    
+    <br>

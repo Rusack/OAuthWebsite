@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="{{ page.description }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{ page_title }}</title>
+
+        {# Google fonts:Open Sans #}
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+        {# Pure css #}
+        <link rel="stylesheet" href="{{ base_url() }}/css/pure-min.css">
+
+        {# Our customized css #}
+        <link rel="stylesheet" href="{{ base_url() }}/css/style.css">
+    </head>
+    <body>
+
+        <div class="container">
+            {% include 'partials/nav.html' %}
+            {% include 'content/'~content_name~'.html' %}
+            <!--{{ content | raw  }}-->
+            {% include 'partials/footer.html' %}
+        </div>
+
+    </body>
+</html>
+ 

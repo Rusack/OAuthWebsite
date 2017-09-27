@@ -1,0 +1,51 @@
+    <div class="pure-g">
+        <div class="pure-u-1-4">
+        </div>
+        <div class="pure-u-1-2">
+            <h1 class="splash-head" style="text-align : center">Your "To Do" Lists</h1>
+        {% if SupprRes < 0 %}
+        <p style="color : red;">Unable to delete task</p>
+        {% endif %}
+        {% if SupprRes > 0 %}
+        <p style="color : green;">New list added</p>
+        {% endif %}
+            
+    <table class="pure-table pure-table-striped pure-table-horizontal" align="center">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+    {% for toDoList in list %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{ toDoList['name'] }}</td>
+            <td>
+                <a class="pure-button" style="background: rgb(66, 184, 221); color: white" href="{{ base_url() }}/detail/{{ toDoList['idToDoList'] }}">View</a>
+            </td>
+            <td>
+                <a class="pure-button" style="background: rgb(202, 60, 60); color: white" href="{{ base_url() }}/home/del/{{ toDoList['idToDoList'] }}?token={{ token }}">Delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+            <br>
+                <form class="pure-form pure-form-aligned" method="post" name="todolist-form" id="todolist-form" action="{{ base_url() }}/todolist">
+                    <div class="pure-control-group">
+                    <label for="name">Name</label>
+                    <input name="name" type="text" placeholder="Name">
+                    <input name="token" type="hidden" value="{{ token }}" >
+                    </div>
+                    <div class="pure-control-group">
+                        <button type="submit" class="pure-button" style="background: rgb(28, 184, 65); color: white; padding : 5px" >Add New List</button>
+                    </div>
+            </div>
+        </div>
+        <div class="pure-u-1-4">
+        </div>
+    </div>

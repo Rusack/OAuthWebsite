@@ -1,0 +1,32 @@
+    <div class="pure-g">
+        <div class="pure-u-1-4">
+        </div>
+        <div class="pure-u-1-2">
+            <h1 class="splash-head" style="text-align : center">Api Call available</h1>        
+    <table class="pure-table pure-table-striped pure-table-horizontal" align="center">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    {% for apiCall in apiCallList %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{ apiCall['name'] }}</td>
+            <td>{{ apiCall['address'] }}</td>
+            <td>{{ apiCall['description'] }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+            <br>
+            </div>
+        </div>
+        <div class="pure-u-1-4">
+        </div>
+    </div>

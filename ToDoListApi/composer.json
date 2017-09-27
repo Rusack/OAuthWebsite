@@ -1,0 +1,14 @@
+{
+    "require": {
+        "slim/slim": "^3.0",
+        "slim/twig-view": "^2.1",
+        "bshaffer/oauth2-server-php": "~1.8"
+    
+    },
+    "autoload": {
+     "psr-4": {
+     	"Model\\": "Application/Classes/Model/",
+     	"Helper\\": "Application/Classes/helper/"
+     }
+	}
+}
